@@ -1,0 +1,32 @@
+function ssh-sql() {
+        eval "$(ssh-agent -s)"
+        ssh-add $HOME/.ssh/sqlserver-tor1-daigou-prod
+        ssh 10.137.32.179
+        }
+
+function restartNginx() {
+        echo 'LHA3SY5qrswU6nUq' | sudo systemctl status nginx
+        sudo -S systemctl restart php7.0-fpm;
+        sudo nginx -t;
+        sudo systemctl restart nginx;
+        sudo -k
+        }
+
+function showmyip() {
+        ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+        }
+
+function godmode() {
+        echo 'LHA3SY5qrswU6nUq' | sudo -S ls -lsa > /tmp/godmode.txt
+        echo "GodMode Enabled"
+        }
+
+function reloadbash() {
+        source $HOME/.bashrc
+        }
+
+function editbash() {
+        nano $HOME/.bash_aliases
+        }
+
+alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
